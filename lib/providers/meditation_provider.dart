@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mediease/models/meditation_exercise_model%20copy.dart';
+import 'package:mediease/models/meditation_exercise_model.dart';
 
 class MeditationProvider extends ChangeNotifier {
   List<MeditationExercise> _allMeditationExerciese = [];

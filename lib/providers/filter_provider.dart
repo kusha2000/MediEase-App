@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:mediease/models/meditation_exercise_model%20copy.dart';
+import 'package:mediease/models/meditation_exercise_model.dart';
 import 'package:mediease/models/minfull_exercise_model.dart';
-import 'package:mediease/models/sleep_exercise_model%20copy%202.dart';
+import 'package:mediease/models/sleep_exercise_model.dart';
 import 'package:mediease/providers/meditation_provider.dart';
 import 'package:mediease/providers/mindfull_exercise_provider.dart';
 import 'package:mediease/providers/sleep_exercise_provider.dart';
@@ -10,6 +10,8 @@ import 'package:provider/provider.dart';
 class FilterProvider extends ChangeNotifier {
   List<dynamic> _allData = [];
   List<dynamic> _filteredData = [];
+  // ignore: unused_field
+  String _selectedCategory = "All";
 
   //get all the data from other providers
   Future<void> getData(BuildContext context) async {
@@ -40,5 +42,30 @@ class FilterProvider extends ChangeNotifier {
     _filteredData = _allData;
 
     notifyListeners();
+  }
+
+  //getter
+  List<dynamic> get filterData => _filteredData;
+
+  //method to filter Data
+  void filteredData(String category) {
+    _selectedCategory = category;
+
+    if (category == "All") {
+      _filteredData = _allData;
+    } else if (category == "MindFullness") {
+      _filteredData = _allData.whereType<MindFullnessExercise>().toList();
+    } else if (category == "Meditation") {
+      _filteredData = _allData.whereType<MeditationExercise>().toList();
+    } else if (category == "Sleep Stories") {
+      _filteredData = _allData.whereType<SleepExercise>().toList();
+    }
+
+    notifyListeners();
+  }
+
+  //Method to return the selected Category
+  String getSelectedCategory() {
+    return _selectedCategory;
   }
 }

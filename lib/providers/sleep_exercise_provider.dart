@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:mediease/models/sleep_exercise_model%20copy%202.dart';
+import 'package:mediease/models/sleep_exercise_model.dart';
 
 class SleepExerciseProvider extends ChangeNotifier {
   List<SleepExercise> _allSleepContents = [];
   List<SleepExercise> sleepExercise = [];
 
-  SleepContentProvider() {
+  SleepExerciseProvider() {
     _allSleepContents = [
       SleepExercise(
           category: "Sleep Stories",
