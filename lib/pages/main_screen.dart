@@ -45,7 +45,7 @@ class _MainScreenState extends State<MainScreen> {
                   "assets/icons/home.svg",
                   colorFilter: ColorFilter.mode(
                       _selectedIndex == 0
-                          ? AppColors.primaryPurple
+                          ? AppColors.primaryBlue
                           : AppColors.primaryGrey,
                       BlendMode.srcIn),
                   semanticsLabel: "home svg",
@@ -56,7 +56,7 @@ class _MainScreenState extends State<MainScreen> {
                   "assets/icons/brain.svg",
                   colorFilter: ColorFilter.mode(
                       _selectedIndex == 1
-                          ? AppColors.primaryPurple
+                          ? AppColors.primaryBlue
                           : AppColors.primaryGrey,
                       BlendMode.srcIn),
                   semanticsLabel: "brain svg",
@@ -67,7 +67,7 @@ class _MainScreenState extends State<MainScreen> {
                   "assets/icons/circle-plus.svg",
                   colorFilter: ColorFilter.mode(
                       _selectedIndex == 2
-                          ? AppColors.primaryPurple
+                          ? AppColors.primaryBlue
                           : AppColors.primaryGrey,
                       BlendMode.srcIn),
                   semanticsLabel: "circle-plus svg",
@@ -78,7 +78,7 @@ class _MainScreenState extends State<MainScreen> {
                   "assets/icons/file-plus-2.svg",
                   colorFilter: ColorFilter.mode(
                       _selectedIndex == 3
-                          ? AppColors.primaryPurple
+                          ? AppColors.primaryBlue
                           : AppColors.primaryGrey,
                       BlendMode.srcIn),
                   semanticsLabel: "file-plus-2 svg",
@@ -89,14 +89,14 @@ class _MainScreenState extends State<MainScreen> {
                   "assets/icons/user-round-cog.svg",
                   colorFilter: ColorFilter.mode(
                       _selectedIndex == 4
-                          ? AppColors.primaryPurple
+                          ? AppColors.primaryBlue
                           : AppColors.primaryGrey,
                       BlendMode.srcIn),
                   semanticsLabel: "user-round-cog svg",
                 ),
                 label: "Profile"),
           ],
-          selectedItemColor: AppColors.primaryPurple,
+          selectedItemColor: AppColors.primaryBlue,
           unselectedItemColor: AppColors.primaryGrey,
         ),
       ),

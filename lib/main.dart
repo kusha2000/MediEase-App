@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:mediease/pages/main_screen.dart';
+import 'package:mediease/router/router.dart';
 
 void main() {
   runApp(MyApp());
@@ -11,11 +11,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       title: "MediEase App",
       theme: ThemeData(fontFamily: GoogleFonts.lato().fontFamily),
       debugShowCheckedModeBanner: false,
-      home: MainScreen(),
+      routerConfig: RouterClass().router,
     );
   }
 }
