@@ -21,7 +21,7 @@ class FilterProvider extends ChangeNotifier {
     //mindfull exercises
     final List<MindFullnessExercise> mindFullExercises =
         Provider.of<MindfullExerciseProvider>(context, listen: false)
-            .mindfullExercise;
+            .mindFullExercise;
 
     //maditations
     final List<MeditationExercise> meditationExercises =

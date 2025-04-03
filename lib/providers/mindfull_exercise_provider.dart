@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:mediease/models/minfull_exercise_model.dart';
 
 class MindfullExerciseProvider extends ChangeNotifier {
-  List<MindFullnessExercise> _allMindfullExercises = [];
-  List<MindFullnessExercise> mindfullExercise = [];
+  List<MindFullnessExercise> _allMindFullExercises = [];
+  List<MindFullnessExercise> mindFullExercise = [];
 
   MindfullExerciseProvider() {
-    _allMindfullExercises = [
+    _allMindFullExercises = [
       MindFullnessExercise(
         category: "Beginners",
         name: "Mindful Breathing",
@@ -19,8 +19,8 @@ class MindfullExerciseProvider extends ChangeNotifier {
           "Repeat for the duration of the exercise."
         ],
         duration: 5,
-        instructionsUrl: "https://github.com/HGSChandeepa/Meditate",
-        imagePath: "assets/images/mindfull.png",
+        instructionsUrl: "https://github.com/kusha2000/MediEase-App",
+        imagePath: "air",
       ),
       MindFullnessExercise(
         category: "Daily Practice",
@@ -33,14 +33,14 @@ class MindfullExerciseProvider extends ChangeNotifier {
           "Write them down in your journal.",
           "Reflect on why these things are meaningful to you."
         ],
-        imagePath: "assets/images/mindfull.png",
+        imagePath: "book",
         duration: 10,
-        instructionsUrl: "https://github.com/HGSChandeepa/Meditate",
+        instructionsUrl: "https://github.com/kusha2000/MediEase-App",
       ),
       MindFullnessExercise(
         category: "Stress Relief",
         name: "Body Scan",
-        imagePath: "assets/images/mindfull.png",
+        imagePath: "self_improvement",
         description:
             "This exercise helps to reduce stress by promoting awareness of physical sensations. It involves mentally scanning your body from head to toe, noticing any areas of tension and consciously relaxing them.",
         instructions: [
@@ -50,12 +50,12 @@ class MindfullExerciseProvider extends ChangeNotifier {
           "Slowly move your attention up through your body, relaxing each part as you go."
         ],
         duration: 15,
-        instructionsUrl: "https://github.com/HGSChandeepa/Meditate",
+        instructionsUrl: "https://github.com/kusha2000/MediEase-App",
       ),
       MindFullnessExercise(
         category: "Focus",
         name: "Single-Tasking",
-        imagePath: "assets/images/mindfull.png",
+        imagePath: "center_focus_strong",
         description:
             "Improve your focus by practicing single-tasking. This exercise encourages you to give your full attention to one task at a time, reducing the habit of multitasking.",
         instructions: [
@@ -65,11 +65,11 @@ class MindfullExerciseProvider extends ChangeNotifier {
           "If your mind wanders, gently bring it back to the task at hand."
         ],
         duration: 10,
-        instructionsUrl: "https://github.com/HGSChandeepa/Meditate",
+        instructionsUrl: "https://github.com/kusha2000/MediEase-App",
       ),
       MindFullnessExercise(
         category: "Anxiety Relief",
-        imagePath: "assets/images/mindfull.png",
+        imagePath: "grass",
         name: "Grounding Exercise",
         description:
             "This exercise helps to alleviate anxiety by grounding you in the present moment. It involves using your senses to connect with your surroundings.",
@@ -82,12 +82,12 @@ class MindfullExerciseProvider extends ChangeNotifier {
           "Identify one thing you can taste."
         ],
         duration: 10,
-        instructionsUrl: "https://github.com/HGSChandeepa/Meditate",
+        instructionsUrl: "https://github.com/kusha2000/MediEase-App",
       ),
       MindFullnessExercise(
         category: "Mindfulness",
         name: "Mindful Walking",
-        imagePath: "assets/images/mindfull.png",
+        imagePath: "directions_walk",
         description:
             "This exercise involves walking slowly and mindfully, paying attention to the sensation of your feet touching the ground and the movement of your body.",
         instructions: [
@@ -97,11 +97,11 @@ class MindfullExerciseProvider extends ChangeNotifier {
           "Focus on your breath and the rhythm of your movement."
         ],
         duration: 15,
-        instructionsUrl: "https://github.com/HGSChandeepa/Meditate",
+        instructionsUrl: "https://github.com/kusha2000/MediEase-App",
       ),
       MindFullnessExercise(
         category: "Self-Acceptance",
-        imagePath: "assets/images/mindfull.png",
+        imagePath: "favorite",
         name: "Loving-Kindness Meditation",
         description:
             "Cultivate self-acceptance and compassion through loving-kindness meditation. This exercise involves silently repeating phrases of goodwill towards yourself and others.",
@@ -112,12 +112,12 @@ class MindfullExerciseProvider extends ChangeNotifier {
           "Extend these phrases to others: 'May you be happy. May you be healthy. May you be safe. May you live with ease.'"
         ],
         duration: 10,
-        instructionsUrl: "https://github.com/HGSChandeepa/Meditate",
+        instructionsUrl: "https://github.com/kusha2000/MediEase-App",
       ),
       MindFullnessExercise(
         category: "Relaxation",
         name: "Progressive Muscle Relaxation",
-        imagePath: "assets/images/mindfull.png",
+        imagePath: "fitness_center",
         description:
             "This exercise helps to reduce physical tension and promote relaxation by progressively tensing and relaxing different muscle groups.",
         instructions: [
@@ -127,12 +127,12 @@ class MindfullExerciseProvider extends ChangeNotifier {
           "Move up through your body, tensing and relaxing each muscle group."
         ],
         duration: 15,
-        instructionsUrl: "https://github.com/HGSChandeepa/Meditate",
+        instructionsUrl: "https://github.com/kusha2000/MediEase-App",
       ),
       MindFullnessExercise(
         category: "Energy",
         name: "Morning Stretch",
-        imagePath: "assets/images/mindfull.png",
+        imagePath: "wb_sunny",
         description:
             "Start your day with a mindful morning stretch. This exercise helps to wake up your body and mind, preparing you for the day ahead.",
         instructions: [
@@ -142,11 +142,11 @@ class MindfullExerciseProvider extends ChangeNotifier {
           "Hold each stretch for a few breaths, focusing on the sensations in your body."
         ],
         duration: 5,
-        instructionsUrl: "https://github.com/HGSChandeepa/Meditate",
+        instructionsUrl: "https://github.com/kusha2000/MediEase-App",
       ),
       MindFullnessExercise(
         category: "Creativity",
-        imagePath: "assets/images/mindfull.png",
+        imagePath: "brush",
         name: "Mindful Drawing",
         description:
             "Enhance your creativity through mindful drawing. This exercise involves focusing on the process of drawing without judgment or expectations.",
@@ -157,10 +157,28 @@ class MindfullExerciseProvider extends ChangeNotifier {
           "If your mind wanders, gently bring your attention back to the drawing."
         ],
         duration: 10,
-        instructionsUrl: "https://github.com/HGSChandeepa/Meditate",
+        instructionsUrl: "https://github.com/kusha2000/MediEase-App",
       ),
     ];
 
-    mindfullExercise = List.from(_allMindfullExercises);
+    mindFullExercise = List.from(_allMindFullExercises);
+  }
+
+  //Method to fetch all the minFullness exercises
+  List<MindFullnessExercise> getAllMindFullnessExercises() {
+    return mindFullExercise;
+  }
+
+  //Method to search by the title
+  void searchMindFullExercise(String query) {
+    if (query.isEmpty) {
+      mindFullExercise = List.from(_allMindFullExercises);
+    } else {
+      mindFullExercise = _allMindFullExercises
+          .where((exercise) =>
+              exercise.name.toLowerCase().contains(query.toLowerCase()))
+          .toList();
+    }
+    notifyListeners();
   }
 }
