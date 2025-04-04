@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:mediease/models/functions_data_model.dart';
@@ -5,6 +7,7 @@ import 'package:mediease/models/meditation_exercise_model.dart';
 import 'package:mediease/models/minfull_exercise_model.dart';
 import 'package:mediease/models/sleep_exercise_model.dart';
 import 'package:mediease/providers/filter_provider.dart';
+import 'package:mediease/router/route_names.dart';
 import 'package:mediease/utils/colors.dart';
 import 'package:mediease/utils/text_styles.dart';
 import 'package:provider/provider.dart';
@@ -13,8 +16,12 @@ class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
   //handle minFullness exercises pressed
-  void handleMindFulnessExercisePressed() {
-    print("MindFullness");
+  void handleMindFulnessExercisePressed(
+      BuildContext context, MindFullnessExercise data) {
+    GoRouter.of(context)
+        .pushNamed(RouteNames.mindFullExercise, queryParameters: {
+      "mindFullnessExercises": jsonEncode(data.toJson()),
+    });
   }
 
   //handle meditation exercises pressed
@@ -151,8 +158,11 @@ class HomePage extends StatelessWidget {
   }
 
   //handle sleep  exercises pressed
-  void handleSleepExercisePressed() {
-    print("sleep");
+  void handleSleepExercisePressed(BuildContext context, SleepExercise data) {
+    GoRouter.of(context)
+        .pushNamed(RouteNames.sleepExerciseTimer, queryParameters: {
+      "sleepExercises": jsonEncode(data.toJson()),
+    });
   }
 
   @override
@@ -337,7 +347,8 @@ class HomePage extends StatelessWidget {
                                       onTap: () {
                                         if (completedData[index]
                                             is MindFullnessExercise) {
-                                          handleMindFulnessExercisePressed();
+                                          handleMindFulnessExercisePressed(
+                                              context, completedData[index]);
                                         } else if (completedData[index]
                                             is MeditationExercise) {
                                           handleMeditationExercisePressed(
@@ -348,7 +359,8 @@ class HomePage extends StatelessWidget {
                                               completedData[index].category,
                                               completedData[index].videoUrl);
                                         } else {
-                                          handleSleepExercisePressed();
+                                          handleSleepExercisePressed(
+                                              context, completedData[index]);
                                         }
                                       },
                                       child: Container(
