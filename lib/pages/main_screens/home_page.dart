@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:mediease/models/functions_data_model.dart';
+import 'package:mediease/models/meditation_exercise_model.dart';
 import 'package:mediease/models/minfull_exercise_model.dart';
 import 'package:mediease/models/sleep_exercise_model.dart';
 import 'package:mediease/providers/filter_provider.dart';
@@ -8,6 +11,149 @@ import 'package:provider/provider.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
+
+  //handle minFullness exercises pressed
+  void handleMindFulnessExercisePressed() {
+    print("MindFullness");
+  }
+
+  //handle meditation exercises pressed
+  void handleMeditationExercisePressed(
+    BuildContext context,
+    final name,
+    final description,
+    final duration,
+    final category,
+    final videoUrl,
+  ) {
+    showModalBottomSheet(
+        context: context,
+        builder: (context) {
+          return SizedBox(
+            width: double.infinity,
+            child: Padding(
+              padding: const EdgeInsets.all(30),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    name,
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: AppColors.primaryPurple,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Text(
+                    category,
+                    style: TextStyle(
+                      fontSize: 15,
+                      fontWeight: FontWeight.w500,
+                      color: AppColors.primaryGrey,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Text(
+                    description,
+                    style: TextStyle(
+                      fontSize: 15,
+                      fontWeight: FontWeight.w500,
+                      color: AppColors.primaryGrey,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Text(
+                    "$duration min",
+                    style: TextStyle(
+                      fontSize: 15,
+                      fontWeight: FontWeight.w500,
+                      color: AppColors.primaryGreen,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Row(
+                    children: [
+                      ElevatedButton(
+                        style: ButtonStyle(
+                          backgroundColor: WidgetStateProperty.all<Color>(
+                            AppColors.primaryGreen,
+                          ),
+                          shape:
+                              WidgetStateProperty.all<RoundedRectangleBorder>(
+                            RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(100),
+                            ),
+                          ),
+                          shadowColor: WidgetStateProperty.all<Color>(
+                            Colors.transparent,
+                          ),
+                        ),
+                        onPressed: () {
+                          GoRouter.of(context).push(
+                            '/functions',
+                            extra: FunctionsData(
+                              category,
+                              title: name,
+                              duration: duration,
+                              description: description,
+                              url: videoUrl,
+                            ),
+                          );
+
+                          //close the bottom sheet
+                          Navigator.pop(context);
+                        },
+                        child: const Text(
+                          "Start",
+                          style: TextStyle(color: Colors.black),
+                        ),
+                      ),
+                      const SizedBox(width: 20),
+                      ElevatedButton(
+                        style: ButtonStyle(
+                          backgroundColor: WidgetStateProperty.all<Color>(
+                            AppColors.primaryGrey,
+                          ),
+                          shape:
+                              WidgetStateProperty.all<RoundedRectangleBorder>(
+                            RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(100),
+                            ),
+                          ),
+                          shadowColor: WidgetStateProperty.all<Color>(
+                            Colors.transparent,
+                          ),
+                        ),
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                        child: const Text(
+                          "Close",
+                          style: TextStyle(color: Colors.black),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          );
+        });
+  }
+
+  //handle sleep  exercises pressed
+  void handleSleepExercisePressed() {
+    print("sleep");
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -188,7 +334,23 @@ class HomePage extends StatelessWidget {
                                 itemCount: completedData.length,
                                 itemBuilder: (context, index) {
                                   return GestureDetector(
-                                      onTap: () {},
+                                      onTap: () {
+                                        if (completedData[index]
+                                            is MindFullnessExercise) {
+                                          handleMindFulnessExercisePressed();
+                                        } else if (completedData[index]
+                                            is MeditationExercise) {
+                                          handleMeditationExercisePressed(
+                                              context,
+                                              completedData[index].name,
+                                              completedData[index].description,
+                                              completedData[index].duration,
+                                              completedData[index].category,
+                                              completedData[index].videoUrl);
+                                        } else {
+                                          handleSleepExercisePressed();
+                                        }
+                                      },
                                       child: Container(
                                         margin: const EdgeInsets.symmetric(
                                             horizontal: 16, vertical: 8),

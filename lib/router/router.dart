@@ -1,7 +1,9 @@
 import 'dart:convert';
 
 import 'package:go_router/go_router.dart';
+import 'package:mediease/models/functions_data_model.dart';
 import 'package:mediease/models/minfull_exercise_model.dart';
+import 'package:mediease/pages/functions_page.dart';
 import 'package:mediease/pages/main_screen.dart';
 import 'package:mediease/pages/mindFull_exercise_details_page.dart';
 import 'package:mediease/router/route_names.dart';
@@ -28,6 +30,14 @@ class RouterClass {
           return MindFullExerciseDetailsPage(
             mindFullnessExercise: mindFullnessExercise,
           );
+        },
+      ),
+      GoRoute(
+        path: "/functions",
+        name: RouteNames.functions,
+        builder: (context, state) {
+          final FunctionsData functionsData = state.extra as FunctionsData;
+          return FunctionsPage(functionsData: functionsData);
         },
       ),
     ],
