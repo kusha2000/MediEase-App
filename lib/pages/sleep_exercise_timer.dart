@@ -91,7 +91,7 @@ class _SleepExerciseTimerState extends State<SleepExerciseTimer> {
               style: const TextStyle(
                 fontSize: 22,
                 fontWeight: FontWeight.bold,
-                color: AppColors.primaryPurple,
+                color: AppColors.primaryBlue,
               ),
             ),
             const SizedBox(height: 10),
