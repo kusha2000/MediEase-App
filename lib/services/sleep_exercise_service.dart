@@ -11,7 +11,7 @@ class SleepExerciseService {
       SleepExercise sleepContent, BuildContext context) async {
     try {
       // Get all the sleep exercises, if any
-      final allSleepExercises = sleepExerciseBox.get("sleep_contents");
+      final allSleepExercises = sleepExerciseBox.get("sleep_contents") ?? [];
 
       //add the new sleep exercise
       allSleepExercises.add(sleepContent);

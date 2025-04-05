@@ -6,6 +6,7 @@ import 'package:mediease/models/minfull_exercise_model.dart';
 import 'package:mediease/models/sleep_exercise_model.dart';
 import 'package:mediease/pages/functions_page.dart';
 import 'package:mediease/pages/main_screen.dart';
+import 'package:mediease/pages/main_screens/create_custom_exercise_page.dart';
 import 'package:mediease/pages/mindFull_exercise_details_page.dart';
 import 'package:mediease/pages/sleep_exercise_timer.dart';
 import 'package:mediease/router/route_names.dart';
@@ -52,6 +53,13 @@ class RouterClass {
           return SleepExerciseTimer(
             sleepExercise: sleepExercise,
           );
+        },
+      ),
+      GoRoute(
+        name: RouteNames.create,
+        path: "/create",
+        builder: (context, state) {
+          return const CreateExercisePage();
         },
       ),
     ],

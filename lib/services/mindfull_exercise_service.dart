@@ -12,7 +12,7 @@ class MindFullExerciseService {
     try {
       // Get all the mindfull exercises, if any
       final allMindFullExercises =
-          mindFullExerciseBox.get("mindfull_exercises");
+          mindFullExerciseBox.get("mindfull_exercises") ?? [];
 
       allMindFullExercises.add(mindfullExercise);
 
