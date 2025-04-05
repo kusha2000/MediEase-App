@@ -2,8 +2,11 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:mediease/models/minfull_exercise_model.dart';
+import 'package:mediease/providers/custom_data_provider.dart';
 import 'package:mediease/utils/colors.dart';
 import 'package:mediease/widgets/reusable/text_input.dart';
+import 'package:provider/provider.dart';
 
 class MindFullExerciseForm extends StatefulWidget {
   MindFullExerciseForm({super.key});
@@ -172,6 +175,33 @@ class _MindFullExerciseFormState extends State<MindFullExerciseForm> {
               onPressed: () {
                 print(
                     "$imagepath $instructionsUrl $duration $instructions $description $name $category");
+                if (_formKey.currentState!.validate()) {
+                  _formKey.currentState!.save();
+                  final imagePathString = imagepath?.path ?? '';
+
+                  final MindFullnessExercise mindFullExercise =
+                      MindFullnessExercise(
+                    category: category,
+                    name: name,
+                    description: description,
+                    instructions: instructions,
+                    duration: duration,
+                    instructionsUrl: instructionsUrl,
+                    imagePath: imagePathString,
+                  );
+
+                  _formKey.currentState!.reset();
+                  category = "";
+                  name = "";
+                  description = "";
+                  instructions = [];
+                  duration = 0;
+                  instructionsUrl = "";
+                  imagepath = null;
+
+                  Provider.of<CustomDataProvider>(context, listen: false)
+                      .addMindfulExercise(mindFullExercise, context);
+                }
               },
               child: const Padding(
                 padding: EdgeInsets.all(10),

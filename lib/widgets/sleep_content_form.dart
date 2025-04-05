@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:mediease/models/sleep_exercise_model.dart';
+import 'package:mediease/providers/custom_data_provider.dart';
 import 'package:mediease/utils/colors.dart';
 import 'package:mediease/widgets/reusable/text_input.dart';
+import 'package:provider/provider.dart';
 
 class SleepContentForm extends StatefulWidget {
   SleepContentForm({super.key});
@@ -118,6 +121,26 @@ class _SleepContentFormState extends State<SleepContentForm> {
                     onPressed: () {
                       print(
                           "$_audioUrl $_duration $_description $_duration $_name $_category");
+                      if (_formKey.currentState!.validate()) {
+                        _formKey.currentState!.save();
+                        final sleepContent = SleepExercise(
+                          category: _category,
+                          name: _name,
+                          description: _description,
+                          duration: _duration,
+                          audioUrl: _audioUrl,
+                        );
+
+                        _formKey.currentState!.reset();
+                        _category = "";
+                        _name = "";
+                        _description = "";
+                        _duration = 0;
+                        _audioUrl = "";
+
+                        Provider.of<CustomDataProvider>(context, listen: false)
+                            .addSleepContent(sleepContent, context);
+                      }
                     },
                     child: const Padding(
                       padding: EdgeInsets.all(10),

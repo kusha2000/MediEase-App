@@ -14,18 +14,6 @@ class MindFullExercisePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Map<String, IconData> iconMap = {
-      'air': Icons.air,
-      'book': Icons.book,
-      'self_improvement': Icons.self_improvement,
-      'center_focus_strong': Icons.center_focus_strong,
-      'grass': Icons.grass,
-      'directions_walk': Icons.directions_walk,
-      'favorite': Icons.favorite,
-      'fitness_center': Icons.fitness_center,
-      'wb_sunny': Icons.wb_sunny,
-      'brush': Icons.brush,
-    };
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -91,17 +79,14 @@ class MindFullExercisePage extends StatelessWidget {
                             color: AppColors.primaryDarkBlue.withOpacity(0.1),
                           ),
                           child: ListTile(
-                            leading: Container(
-                              padding: EdgeInsets.all(12),
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(100),
-                                color: AppColors.primaryWhite,
-                              ),
-                              child: Icon(
-                                iconMap[mindFullnessExercise.imagePath] ??
-                                    Icons.help_outline,
-                                color: AppColors.primaryBlue,
-                                size: 40,
+                            leading: ClipRRect(
+                              borderRadius: BorderRadius.circular(100),
+                              child: Image.asset(
+                                mindFullnessExercise.imagePath,
+                                width: MediaQuery.of(context).size.width * 0.13,
+                                height:
+                                    MediaQuery.of(context).size.width * 0.13,
+                                fit: BoxFit.cover,
                               ),
                             ),
                             title: Text(mindFullnessExercise.name,
