@@ -25,8 +25,20 @@ MediEase is a wellness app designed to promote mindfulness, meditation, and bett
 
 
 
+https://github.com/user-attachments/assets/27da0f37-db2f-4ec4-b613-c7d7b1264a4b
+
+
 <br><br>
 <h2>This is the screenshots of the system</h2><br><br>
 
+<img src="https://github.com/user-attachments/assets/a526d26b-bb8a-4e15-af2b-d0455d56eddd" width="300" height="500">
+<img src="https://github.com/user-attachments/assets/6e1a7c33-4b6a-45d5-b9f8-58681e8259a7" width="300" height="500">
+<img src="https://github.com/user-attachments/assets/2e592ea4-5bdc-4962-b985-f4c2dc2233be" width="300" height="500">
+<img src="https://github.com/user-attachments/assets/e14e5f21-1e9d-4371-8105-f1f18af61e76" width="300" height="500">
+<img src="https://github.com/user-attachments/assets/c8b7a018-2778-4ed8-8f5d-c69840b3aa3d" width="300" height="500">
+<img src="https://github.com/user-attachments/assets/b7a3ebd3-8ea7-422b-881c-ae61ba74cb65" width="300" height="500">
+<img src="https://github.com/user-attachments/assets/a664913d-51b8-4492-9c88-9afdb03592d4" width="300" height="500">
+<img src="https://github.com/user-attachments/assets/465b9e01-0f7e-42fc-83da-c7e2072bd906" width="300" height="500">
+<img src="https://github.com/user-attachments/assets/66bc8f66-f554-4c8c-9e3d-dc8cd061280a" width="300" height="500">
 
 
